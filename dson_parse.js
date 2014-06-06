@@ -94,7 +94,7 @@ var dson_parse = (function () {
 // If a c parameter is provided, verify that it matches the current character.
 
             if (c && c !== ch) {
-                error("Expected '" + c + "' instead of '" + ch + "'");
+                error("Expected '" + c + "'. Got '" + ch + "'. Such sad.");
             }
 
 // Get the next character. When there are no more characters,
@@ -151,7 +151,7 @@ var dson_parse = (function () {
             }
             number = +string;
             if (!isFinite(number)) {
-                error("Bad number");
+                error("Bad number. So malformed.");
             } else {
                 return number;
             }
@@ -197,7 +197,7 @@ var dson_parse = (function () {
                     }
                 }
             }
-            error("Bad string");
+            error("Bad string. Much invalid");
         },
 
         white = function () {
@@ -242,7 +242,7 @@ var dson_parse = (function () {
                 next('h');
                 return null;
             }
-            error("Unexpected '" + ch + "'");
+            error("Unexpected '" + ch + "'. Very scare");
         },
 
         value,  // Place holder for the value function.
@@ -281,7 +281,7 @@ var dson_parse = (function () {
                     white();
                 }
             }
-            error("Bad array");
+            error("Bad array. Wow");
         },
 
         object = function () {
@@ -326,7 +326,7 @@ var dson_parse = (function () {
                     white();
                 }
             }
-            error("Bad object");
+            error("Bad object. Be brave shibe");
         };
 
     value = function () {
@@ -363,7 +363,7 @@ var dson_parse = (function () {
         result = value();
         white();
         if (ch) {
-            error("Syntax error");
+            error("Syntax error. Don't know");
         }
 
 // If there is a reviver function, we recursively walk the new structure,
