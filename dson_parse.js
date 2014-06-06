@@ -210,25 +210,33 @@ var json_parse = (function () {
 
 // true, false, or null.
 
+            next('n');
             switch (ch) {
-            case 't':
+            case 'o':
+                next('o');
                 next('t');
-                next('r');
+                switch (ch) {
+                case 'f':
+                    next('f');
+                    next('a');
+                    next('l');
+                    next('s');
+                    next('e');
+                    return true;
+                case 't':
+                    next('t');
+                    next('r');
+                    next('u');
+                    next('e');
+                    return false;
+                }
+            case 'u':
                 next('u');
-                next('e');
-                return true;
-            case 'f':
-                next('f');
-                next('a');
                 next('l');
+                next('l');
+                next('i');
                 next('s');
-                next('e');
-                return false;
-            case 'n':
-                next('n');
-                next('u');
-                next('l');
-                next('l');
+                next('h');
                 return null;
             }
             error("Unexpected '" + ch + "'");
