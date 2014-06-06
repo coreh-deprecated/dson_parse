@@ -342,6 +342,7 @@ var dson_parse = (function () {
             } else if (text.charAt(at + 1) === 'o') {
                 return array();
             }
+            break;
         case '"':
             return string();
         case '-':
