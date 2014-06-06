@@ -337,9 +337,9 @@ var dson_parse = (function () {
         white();
         switch (ch) {
         case 's':
-            if (text.charAt(at + 1) === 'u') {
+            if (text.charAt(at) === 'u') {
                 return object();
-            } else if (text.charAt(at + 1) === 'o') {
+            } else if (text.charAt(at) === 'o') {
                 return array();
             }
             break;
