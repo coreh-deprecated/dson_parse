@@ -333,10 +333,12 @@ var json_parse = (function () {
 
         white();
         switch (ch) {
-        case '{':
-            return object();
-        case '[':
-            return array();
+        case 's':
+            if (text.charAt(at + 1) === 'u') {
+                return object();
+            } else if (text.charAt(at + 1) === 'o') {
+                return array();
+            }
         case '"':
             return string();
         case '-':
