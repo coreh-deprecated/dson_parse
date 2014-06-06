@@ -1,15 +1,15 @@
 /*
-    json_parse.js
-    2012-06-20
+    dson_parse.js
+    2014-06-06
 
     Public Domain.
 
     NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 
-    This file creates a json_parse function.
+    This file creates a dson_parse function.
 
-        json_parse(text, reviver)
-            This method parses a JSON text to produce an object or array.
+        dson_parse(text, reviver)
+            This method parses a DSON text to produce an object or array.
             It can throw a SyntaxError exception.
 
             The optional reviver parameter is a function that can filter and
@@ -23,7 +23,7 @@
             // Parse the text. Values that look like ISO date strings will
             // be converted to Date objects.
 
-            myData = json_parse(text, function (key, value) {
+            myData = dson_parse(text, function (key, value) {
                 var a;
                 if (typeof value === 'string') {
                     a =
@@ -50,13 +50,13 @@
     hasOwnProperty, message, n, name, prototype, push, r, t, text
 */
 
-var json_parse = (function () {
+var dson_parse = (function () {
     "use strict";
 
-// This is a function that can parse a JSON text, producing a JavaScript
+// This is a function that can parse a DSON text, producing a JavaScript
 // data structure. It is a simple, recursive descent parser. It does not use
 // eval or regular expressions, so it can be used as a model for implementing
-// a JSON parser in other languages.
+// a DSON parser in other languages.
 
 // We are defining the function inside of another function to avoid creating
 // global variables.
@@ -328,7 +328,7 @@ var json_parse = (function () {
 
     value = function () {
 
-// Parse a JSON value. It could be an object, an array, a string, a number,
+// Parse a DSON value. It could be an object, an array, a string, a number,
 // or a word.
 
         white();
@@ -348,7 +348,7 @@ var json_parse = (function () {
         }
     };
 
-// Return the json_parse function. It will have access to all of the above
+// Return the dson_parse function. It will have access to all of the above
 // functions and variables.
 
     return function (source, reviver) {
