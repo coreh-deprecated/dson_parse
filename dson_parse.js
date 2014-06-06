@@ -124,9 +124,20 @@ var json_parse = (function () {
                     string += ch;
                 }
             }
-            if (ch === 'e' || ch === 'E') {
-                string += ch;
-                next();
+            if (ch === 'v' || ch === 'V') {
+                if (ch === 'v') {
+                    next('v')
+                    string += ch;
+                    next('e')
+                    next('r')
+                    next('y')
+                } else {
+                    next('V')
+                    string += ch;
+                    next('E')
+                    next('R')
+                    next('Y')
+                }
                 if (ch === '-' || ch === '+') {
                     string += ch;
                     next();
