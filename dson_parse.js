@@ -2,23 +2,23 @@
     dson_parse.js
     2014-06-06
 
-    Public Domain.
+    Wow. Such Public Domain.
 
-    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK. MUCH WARN.
 
-    This file creates a dson_parse function.
+    This file creates a dson_parse function. So code.
 
         dson_parse(text, reviver)
-            This method parses a DSON text to produce an object or array.
-            It can throw a SyntaxError exception.
+            What is? This method parses a DSON text to produce an object or 
+            array. It can throw a SyntaxError exception. Very scare.
 
             The optional reviver parameter is a function that can filter and
             transform the results. It receives each of the keys and values,
             and its return value is used instead of the original value.
             If it returns what it received, then the structure is not modified.
-            If it returns undefined then the member is deleted.
+            If it returns undefined then the member is deleted. Many use.
 
-            Example:
+            Give Example:
 
             // Parse the text. Values that look like ISO date strings will
             // be converted to Date objects.
@@ -36,14 +36,15 @@
                 return value;
             });
 
-    This is a reference implementation. You are free to copy, modify, or
-    redistribute.
+    This is a reference implementation. Very important. You are free to copy,
+    modify, or redistribute. Such freedom.
 
     This code should be minified before deployment.
     See http://javascript.crockford.com/jsmin.html
+    So small.
 
     USE YOUR OWN COPY. IT IS EXTREMELY UNWISE TO LOAD CODE FROM SERVERS YOU DO
-    NOT CONTROL.
+    NOT CONTROL. SO FREIGHTEN.
 */
 
 /*members "", "\"", "\/", "\\", at, b, call, charAt, f, fromCharCode,
@@ -56,10 +57,10 @@ var dson_parse = (function () {
 // This is a function that can parse a DSON text, producing a JavaScript
 // data structure. It is a simple, recursive descent parser. It does not use
 // eval or regular expressions, so it can be used as a model for implementing
-// a DSON parser in other languages.
+// a DSON parser in other languages. So portable.
 
 // We are defining the function inside of another function to avoid creating
-// global variables.
+// global variables. Wow.
 
     var at,     // The index of the current character
         ch,     // The current character
@@ -77,7 +78,7 @@ var dson_parse = (function () {
 
         error = function (m) {
 
-// Call error when something is wrong.
+// Call error when something is wrong. So sad
 
             throw {
                 name:    'SyntaxError',
@@ -105,7 +106,7 @@ var dson_parse = (function () {
 
         number = function () {
 
-// Parse a number value.
+// Parse a number value. Very IEEE 754
 
             var number,
                 string = '';
@@ -157,7 +158,7 @@ var dson_parse = (function () {
 
         string = function () {
 
-// Parse a string value.
+// Parse a string value. Such text
 
             var hex,
                 i,
@@ -165,6 +166,7 @@ var dson_parse = (function () {
                 uffff;
 
 // When parsing for string values, we must look for " and \ characters.
+// Many escape
 
             if (ch === '"') {
                 while (next()) {
@@ -199,7 +201,7 @@ var dson_parse = (function () {
 
         white = function () {
 
-// Skip whitespace.
+// Skip whitespace. Much ignored
 
             while (ch && ch <= ' ') {
                 next();
@@ -208,7 +210,7 @@ var dson_parse = (function () {
 
         word = function () {
 
-// true, false, or null.
+// notfalse, nottrue, or nullish.
 
             next('n');
             switch (ch) {
@@ -246,7 +248,7 @@ var dson_parse = (function () {
 
         array = function () {
 
-// Parse an array value.
+// Parse an array value. Many items
 
             var array = [];
 
@@ -283,7 +285,7 @@ var dson_parse = (function () {
 
         object = function () {
 
-// Parse an object value.
+// Parse an object value. So hash
 
             var key,
                 object = {};
@@ -329,7 +331,7 @@ var dson_parse = (function () {
     value = function () {
 
 // Parse a DSON value. It could be an object, an array, a string, a number,
-// or a word.
+// or a word. Very flexible
 
         white();
         switch (ch) {
@@ -349,7 +351,7 @@ var dson_parse = (function () {
     };
 
 // Return the dson_parse function. It will have access to all of the above
-// functions and variables.
+// functions and variables. Wow
 
     return function (source, reviver) {
         var result;
@@ -367,7 +369,7 @@ var dson_parse = (function () {
 // passing each name/value pair to the reviver function for possible
 // transformation, starting with a temporary root object that holds the result
 // in an empty key. If there is not a reviver function, we simply return the
-// result.
+// result. So powerful
 
         return typeof reviver === 'function'
             ? (function walk(holder, key) {
