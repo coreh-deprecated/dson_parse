@@ -250,21 +250,31 @@ var json_parse = (function () {
 
             var array = [];
 
-            if (ch === '[') {
-                next('[');
+            if (ch === 's') {
+                next('s');
+                next('o');
                 white();
-                if (ch === ']') {
-                    next(']');
+                if (ch === 'm') {
+                    next('m');
+                    next('a');
+                    next('n');
+                    next('y');
                     return array;   // empty array
                 }
                 while (ch) {
                     array.push(value());
                     white();
-                    if (ch === ']') {
-                        next(']');
+                    if (ch === 'm') {
+                        next('m');
+                        next('a');
+                        next('n');
+                        next('y');
                         return array;
                     }
-                    next(',');
+                    next('n');
+                    next('e');
+                    next('x');
+                    next('t');
                     white();
                 }
             }
