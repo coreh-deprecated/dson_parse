@@ -278,27 +278,38 @@ var json_parse = (function () {
             var key,
                 object = {};
 
-            if (ch === '{') {
-                next('{');
+            if (ch === 's') {
+                next('s');
+                next('u');
+                next('c');
+                next('h');
                 white();
-                if (ch === '}') {
-                    next('}');
+                if (ch === 'w') {
+                    next('w');
+                    next('o');
+                    next('w');
                     return object;   // empty object
                 }
                 while (ch) {
                     key = string();
                     white();
-                    next(':');
+                    next('i');
+                    next('s');
                     if (Object.hasOwnProperty.call(object, key)) {
                         error('Duplicate key "' + key + '"');
                     }
                     object[key] = value();
                     white();
-                    if (ch === '}') {
-                        next('}');
+                    if (ch === 'w') {
+                        next('w');
+                        next('o');
+                        next('w');
                         return object;
                     }
-                    next(',');
+                    next('n');
+                    next('e');
+                    next('x');
+                    next('t');
                     white();
                 }
             }
