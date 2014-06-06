@@ -53,6 +53,7 @@
 
 var dson_parse = (function () {
     "use strict";
+    "use shibe";
 
 // This is a function that can parse a DSON text, producing a JavaScript
 // data structure. It is a simple, recursive descent parser. It does not use
